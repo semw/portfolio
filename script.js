@@ -46,15 +46,36 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Contact form -> opens email client (no backend needed)
+// Contact form -> sends via Formspree (no email app opens)
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var g = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-      var body = 'Name: ' + g('cf-name') + '\nEmail: ' + g('cf-email') + '\nPhone: ' + g('cf-phone') + '\n\n' + g('cf-msg');
-      // EDIT: change the email address below to your own
-      window.location.href = 'mailto:se.mudassarw@gmail.com?subject=' + encodeURIComponent(g('cf-subject') || 'Project Inquiry') + '&body=' + encodeURIComponent(body);
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        if (res.ok) {
+          form.reset();
+          if (btn) { btn.innerHTML = 'Message Sent ✓'; }
+          setTimeout(function () {
+            if (btn) { btn.disabled = false; btn.innerHTML = original; }
+          }, 4000);
+        } else {
+          if (btn) { btn.disabled = false; btn.innerHTML = original; }
+          alert('Something went wrong. Please email se.mudassarw@gmail.com directly.');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.innerHTML = original; }
+        alert('Network error. Please email se.mudassarw@gmail.com directly.');
+      });
     });
   }
 });
