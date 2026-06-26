@@ -172,16 +172,20 @@
 </div>
 </div>
 <div class="formcard reveal">
-<form class="cform" id="contactForm">
+<form class="cform" id="contactForm" action="https://formspree.io/f/xpqgdwqq" method="POST">
 <div class="frow">
-<div class="fgroup"><label class="flabel">Full Name <span class="req">*</span></label><input id="cf-name" class="finput" type="text" placeholder="Your full name" required></div>
-<div class="fgroup"><label class="flabel">Email Address <span class="req">*</span></label><input id="cf-email" class="finput" type="email" placeholder="you@example.com" required></div>
+<div class="fgroup"><label class="flabel">Full Name <span class="req">*</span></label><input name="name" class="finput" type="text" placeholder="Your full name" required></div>
+<div class="fgroup"><label class="flabel">Email Address <span class="req">*</span></label><input name="email" class="finput" type="email" placeholder="you@example.com" required></div>
 </div>
 <div class="frow">
-<div class="fgroup"><label class="flabel">Phone Number</label><input id="cf-phone" class="finput" type="tel" placeholder="+92 313 0770770"></div>
-<div class="fgroup"><label class="flabel">Subject</label><input id="cf-subject" class="finput" type="text" placeholder="I have a project for you"></div>
+<div class="fgroup"><label class="flabel">Phone Number</label><input name="phone" class="finput" type="tel" placeholder="+92 313 0770770"></div>
+<div class="fgroup"><label class="flabel">Project Type</label><select name="project_type" class="finput"><option value="" disabled selected>Select a project type</option><option>Android ROM / OS Work</option><option>Android Vulnerability &amp; Exploitation</option><option>Android App Vulnerability &amp; Pentesting Assessment</option><option>Android App Development</option><option>Custom Web / App Project</option><option>AI Solution / AI Agent</option><option>Security R&amp;D</option></select></div>
 </div>
-<div class="fgroup"><label class="flabel">Message <span class="req">*</span></label><textarea id="cf-msg" class="finput ftext" placeholder="Write your message..." required></textarea></div>
+<div class="frow">
+<div class="fgroup"><label class="flabel">Estimated Budget</label><select name="budget" class="finput"><option value="" disabled selected>Select budget range</option><option>$1 - $300</option><option>$300 - $500</option><option>$500 - $1000</option><option>$1000 - $2000</option><option>$2000 +</option><option>Don't know yet</option></select></div>
+<div class="fgroup"><label class="flabel">Subject</label><input name="subject" class="finput" type="text" placeholder="I have a project for you"></div>
+</div>
+<div class="fgroup"><label class="flabel">Project Details <span class="req">*</span></label><textarea name="message" class="finput ftext" placeholder="Tell me about your app idea, timeline, and goals..." required></textarea></div>
 <button type="submit" class="btn btn-p" style="align-self:flex-start">Send Message <span class="arr">✈</span></button>
 </form>
 </div>
