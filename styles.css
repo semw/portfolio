@@ -157,7 +157,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .finput:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(0,229,168,.12)}
 .finput::placeholder{color:#5c6478}
 .ftext{min-height:150px;resize:vertical;line-height:1.6}
-@media(max-width:980px){.herogrid{grid-template-columns:1fr}.portrait{width:min(320px,78%)}.cgrid{grid-template-columns:1fr}}
+@media(max-width:980px){.herogrid{grid-template-columns:1fr;display:flex;flex-direction:column}.portrait{width:min(320px,78%)}.cgrid{grid-template-columns:1fr}.heroin{display:contents}.herointro{order:1}.heroart{order:2;margin:8px 0 4px}.herorest{order:3}.educard{margin-top:20px}}
 @media(max-width:600px){.frow{grid-template-columns:1fr}.h1{white-space:normal}.hrole{white-space:normal}.hstats{gap:24px}}
 /* brand icons via mask */
 .ico{display:inline-block;width:18px;height:18px;background:currentColor;vertical-align:-3px;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
